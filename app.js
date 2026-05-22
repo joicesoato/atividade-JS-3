@@ -1,54 +1,84 @@
 
 // SELETORES DO DOM
+
+
 const botoesComprar = document.querySelectorAll(".btn-comprar");
+
 const listaCarrinho = document.querySelector("#lista-carrinho");
+
 const totalElemento = document.querySelector("#total");
 
-// VARIÁVEL DO CARRINHO
-let carrinho = [];
 
-// ADICIONAR PIZZA NO CARRINHO
+// CARRINHO
+
+
+// Recupera dados salvos no localStorage
+const carrinhoSalvo = localStorage.getItem("carrinho");
+
+// Converte JSON para array
+let carrinho = carrinhoSalvo
+    ? JSON.parse(carrinhoSalvo)
+    : [];
+
+
+// ADICIONAR PIZZA
+
+
 botoesComprar.forEach((botao) => {
 
     botao.addEventListener("click", () => {
 
-        // Captura os dados do botão
+        // Captura dados do botão
         const nomePizza = botao.dataset.nome;
+
         const precoPizza = Number(botao.dataset.preco);
 
         // Cria objeto da pizza
         const pizza = {
+
             id: Date.now(),
+
             nome: nomePizza,
+
             preco: precoPizza
         };
 
-        // Adiciona no carrinho
+        // Adiciona no array
         carrinho.push(pizza);
+
+        // Salva localStorage
+        salvarCarrinho();
 
         // Atualiza tela
         atualizarCarrinho();
+
     });
 
 });
 
+
 // ATUALIZAR CARRINHO
+
+
 function atualizarCarrinho() {
 
-    // Limpa lista antes de recriar
+    // Limpa lista
     listaCarrinho.innerHTML = "";
 
+    // Variável total
     let total = 0;
 
-    // Percorre itens do carrinho
+    // Percorre carrinho
     carrinho.forEach((pizza) => {
 
+        // Soma total
         total += pizza.preco;
 
-        // Cria item da lista
+        // Cria item
         const item = document.createElement("li");
 
         item.innerHTML = `
+
             <div class="item-info">
 
                 <span class="nome-pizza">
@@ -64,14 +94,17 @@ function atualizarCarrinho() {
             <button class="btn-remover">
                 Remover
             </button>
+
         `;
 
         // Seleciona botão remover
-        const botaoRemover = item.querySelector("button");
+        const botaoRemover = item.querySelector(".btn-remover");
 
-        // Evento de remover
+        // Evento remover
         botaoRemover.addEventListener("click", () => {
+
             removerPizza(pizza.id);
+
         });
 
         // Adiciona item na tela
@@ -84,20 +117,44 @@ function atualizarCarrinho() {
 
 }
 
+
 // REMOVER PIZZA
+
+
 function removerPizza(idPizza) {
 
-    // Remove apenas item clicado
+    // Remove item clicado
     carrinho = carrinho.filter((pizza) => {
+
         return pizza.id !== idPizza;
+
     });
 
-    // Atualiza DOM automaticamente
+    // Salva alterações
+    salvarCarrinho();
+
+    // Atualiza tela
     atualizarCarrinho();
 
 }
 
+
+// SALVAR NO LOCALSTORAGE
+
+
+function salvarCarrinho() {
+
+    // Converte array para JSON
+    const carrinhoJSON = JSON.stringify(carrinho);
+
+    // Salva localStorage
+    localStorage.setItem("carrinho", carrinhoJSON);
+
+}
+
+
 // MODAL - SELETORES
+
 
 const btnFinalizar = document.querySelector("#btn-finalizar");
 
@@ -113,31 +170,37 @@ const modalQuantidade = document.querySelector("#modal-quantidade");
 
 const modalTotal = document.querySelector("#modal-total");
 
+
 // ABRIR MODAL
+
 
 btnFinalizar.addEventListener("click", () => {
 
-    // Limpa conteúdo anterior
+    // Limpa modal
     modalPedidos.innerHTML = "";
 
     // Variável total
     let total = 0;
 
-    // Percorre o carrinho
+    // Percorre carrinho
     carrinho.forEach((pizza) => {
 
-        // Soma total
+        // Soma valores
         total += pizza.preco;
 
-        // Cria item visual
+        // Cria item
         const item = document.createElement("div");
 
+        // Classe CSS
         item.classList.add("item-modal");
 
+        // Conteúdo
         item.innerHTML = `
+
             <span>${pizza.nome}</span>
 
             <span>R$ ${pizza.preco},00</span>
+
         `;
 
         // Adiciona no modal
@@ -145,10 +208,10 @@ btnFinalizar.addEventListener("click", () => {
 
     });
 
-    // Quantidade total
+    // Quantidade
     modalQuantidade.textContent = carrinho.length;
 
-    // Soma final
+    // Total
     modalTotal.textContent = total;
 
     // Exibe modal
@@ -156,7 +219,9 @@ btnFinalizar.addEventListener("click", () => {
 
 });
 
+
 // FECHAR MODAL
+
 
 btnFechar.addEventListener("click", () => {
 
@@ -164,19 +229,30 @@ btnFechar.addEventListener("click", () => {
 
 });
 
+
 // CONFIRMAR PEDIDO
+
 
 btnConfirmar.addEventListener("click", () => {
 
-    alert("Pedido confirmado com sucesso!");
+    alert("Pedido confirmado com sucesso 🍕");
 
     // Limpa carrinho
     carrinho = [];
 
-    // Atualiza carrinho visual
+    // Remove localStorage
+    localStorage.removeItem("carrinho");
+
+    // Atualiza tela
     atualizarCarrinho();
 
     // Fecha modal
     modalOverlay.style.display = "none";
 
 });
+
+
+// INICIALIZAÇÃ
+
+// Reconstrói carrinho ao carregar página
+atualizarCarrinho();
