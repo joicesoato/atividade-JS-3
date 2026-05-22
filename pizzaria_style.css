@@ -1,0 +1,715 @@
+/* ========================= */
+/* RESET */
+/* ========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* ========================= */
+/* BODY */
+/* ========================= */
+
+body{
+
+    font-family: 'Segoe UI', sans-serif;
+
+    background-color:#f5ede3;
+
+    color:#2b2b2b;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+}
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+header{
+
+    background-color:#884513;
+
+    padding:20px 60px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    position:sticky;
+    top:0;
+
+    z-index:999;
+
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* LOGO */
+
+header p{
+
+    color:#FFD700;
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+}
+
+/* MENU */
+
+nav ul{
+
+    list-style:none;
+
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+
+    text-decoration:none;
+
+    color:#fff;
+
+    font-weight:600;
+
+    transition:0.3s;
+
+    position:relative;
+}
+
+nav a::after{
+
+    content:"";
+
+    width:0%;
+
+    height:2px;
+
+    background-color:#FFD700;
+
+    position:absolute;
+
+    left:0;
+    bottom:-6px;
+
+    transition:0.3s;
+}
+
+nav a:hover::after{
+
+    width:100%;
+}
+
+nav a:hover{
+
+    color:#FFD700;
+}
+
+/* ========================= */
+/* MAIN */
+/* ========================= */
+
+main{
+
+    padding:60px 20px;
+}
+
+/* ========================= */
+/* HERO / TÍTULO */
+/* ========================= */
+
+main section:first-of-type{
+
+    text-align:center;
+
+    margin-bottom:60px;
+}
+
+main h1{
+
+    font-size:4rem;
+
+    color:#884513;
+
+    margin-bottom:15px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+}
+
+main section:first-of-type::after{
+
+    content:"Pizzas artesanais preparadas com ingredientes selecionados";
+
+    display:block;
+
+    color:#7a6a58;
+
+    font-size:1.1rem;
+
+    margin-top:10px;
+}
+
+/* ========================= */
+/* CONTAINER PIZZAS */
+/* ========================= */
+
+section:nth-of-type(2){
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:35px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:80px;
+}
+
+/* ========================= */
+/* CARD PIZZA */
+/* ========================= */
+
+article{
+
+    width:320px;
+
+    background-color:#fff;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 8px 30px rgba(0,0,0,0.08);
+
+    transition:0.4s;
+
+    position:relative;
+}
+
+/* EFEITO HOVER */
+
+article:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* IMAGEM */
+
+article img{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+}
+
+/* CONTEÚDO */
+
+article h2{
+
+    color:#884513;
+
+    font-size:1.7rem;
+
+    margin:20px 20px 10px;
+
+    font-weight:700;
+}
+
+article p{
+
+    margin:0 20px 15px;
+
+    color:#666;
+
+    line-height:1.5;
+}
+
+/* PREÇO */
+
+.preco{
+
+    color:#D94801;
+
+    font-size:1.8rem;
+
+    font-weight:800;
+
+    margin-top:10px;
+}
+
+/* BOTÃO */
+
+.btn-comprar{
+
+    margin:20px;
+
+    width:calc(100% - 40px);
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background-color:#D94801;
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.btn-comprar:hover{
+
+    background-color:#884513;
+
+    transform:scale(1.02);
+}
+
+/* ========================= */
+/* CARRINHO */
+/* ========================= */
+
+.carrinho{
+
+    max-width:950px;
+
+    margin:auto;
+
+    background-color:#fff;
+
+    padding:40px;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.08);
+}
+
+/* TÍTULO */
+
+.carrinho h2{
+
+    text-align:center;
+
+    color:#884513;
+
+    font-size:2.5rem;
+
+    margin-bottom:35px;
+}
+
+/* LISTA */
+
+#lista-carrinho{
+
+    list-style:none;
+}
+
+/* ITEM */
+
+#lista-carrinho li{
+
+    background-color:#f8f4ef;
+
+    border-left:6px solid #D94801;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    margin-bottom:18px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    transition:0.3s;
+}
+
+#lista-carrinho li:hover{
+
+    transform:scale(1.01);
+
+    background-color:#fff8ed;
+}
+
+/* INFO */
+
+.item-info{
+
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.nome-pizza{
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+    color:#884513;
+}
+
+.preco-pizza{
+
+    color:#D94801;
+
+    font-weight:700;
+}
+
+/* BOTÃO REMOVER */
+
+.btn-remover{
+
+    background-color:#D94801;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 18px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    transition:0.3s;
+}
+
+.btn-remover:hover{
+
+    background-color:#884513;
+}
+
+/* TOTAL */
+
+.total-carrinho{
+
+    margin-top:30px;
+
+    text-align:right;
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    color:#884513;
+}
+
+/* BOTÃO FINALIZAR */
+
+#btn-finalizar{
+
+    width:100%;
+
+    margin-top:25px;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background-color:#7E8C11;
+
+    color:white;
+
+    font-size:1.1rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+#btn-finalizar:hover{
+
+    background-color:#5f690d;
+}
+
+/* ========================= */
+/* MODAL OVERLAY */
+/* ========================= */
+
+.modal-overlay{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background-color:rgba(0,0,0,0.7);
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    z-index:9999;
+}
+
+/* ========================= */
+/* MODAL */
+/* ========================= */
+
+.modal{
+
+    width:100%;
+    max-width:550px;
+
+    background-color:#fff;
+
+    border-radius:28px;
+
+    padding:35px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.25);
+
+    animation:modalAnim 0.3s ease;
+}
+
+/* ANIMAÇÃO */
+
+@keyframes modalAnim{
+
+    from{
+
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* TÍTULO */
+
+.modal h2{
+
+    text-align:center;
+
+    color:#884513;
+
+    margin-bottom:25px;
+
+    font-size:2rem;
+}
+
+/* LISTA */
+
+#modal-pedidos{
+
+    margin-bottom:25px;
+}
+
+/* ITEM MODAL */
+
+.item-modal{
+
+    background-color:#f8f4ef;
+
+    border-radius:14px;
+
+    padding:16px;
+
+    margin-bottom:12px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* TEXTOS */
+
+.modal p{
+
+    margin-top:12px;
+
+    font-size:1.1rem;
+
+    font-weight:700;
+
+    color:#444;
+}
+
+/* BOTÕES */
+
+.modal-botoes{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    margin-top:30px;
+}
+
+/* BOTÕES MODAL */
+
+.modal-botoes button{
+
+    flex:1;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+/* FECHAR */
+
+#btn-fechar{
+
+    background-color:#884513;
+}
+
+#btn-fechar:hover{
+
+    background-color:#6f360c;
+}
+
+/* CONFIRMAR */
+
+#btn-confirmar{
+
+    background-color:#7E8C11;
+}
+
+#btn-confirmar:hover{
+
+    background-color:#65710d;
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer{
+
+    margin-top:80px;
+
+    background-color:#884513;
+
+    color:#FFD700;
+
+    text-align:center;
+
+    padding:30px;
+
+    font-size:1rem;
+}
+
+/* ========================= */
+/* RESPONSIVO */
+/* ========================= */
+
+@media(max-width:768px){
+
+    header{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        padding:20px;
+    }
+
+    nav ul{
+
+        gap:18px;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+    }
+
+    main h1{
+
+        font-size:2.8rem;
+    }
+
+    article{
+
+        width:100%;
+        max-width:400px;
+    }
+
+    .carrinho{
+
+        padding:25px;
+    }
+
+    #lista-carrinho li{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+    }
+
+    .modal{
+
+        padding:25px;
+    }
+
+    .modal-botoes{
+
+        flex-direction:column;
+    }
+
+    .total-carrinho{
+
+        text-align:center;
+    }
+}

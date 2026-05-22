@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria</title>
+
+    <link rel="stylesheet" href="pizzaria_style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div>
+            <p>Pizzaria</p>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <!-- MAIN -->
+    <main>
+
+        <!-- TÍTULO -->
+        <section>
+            <h1>Menu</h1>
+        </section>
+
+        <!-- PIZZAS -->
+        <section>
+
+            <!-- PIZZA 1 -->
+            <article>
+
+                <h2>Pizza Calabresa</h2>
+
+                <img
+                    src="imagens/pizza_calabresa.png"
+                    alt="Pizza Calabresa"
+                >
+
+                <p>Pizza com calabresa e cebola.</p>
+
+                <p class="preco">R$ 45,00</p>
+
+                <button
+                    class="btn-comprar"
+                    data-nome="Pizza Calabresa"
+                    data-preco="45"
+                >
+                    Comprar
+                </button>
+
+            </article>
+
+            <!-- PIZZA 2 -->
+            <article>
+
+                <h2>Pizza Frango com Catupiry</h2>
+
+                <img
+                    src="imagens/pizza_frango.png"
+                    alt="Pizza Frango"
+                >
+
+                <p>Pizza de frango com catupiry.</p>
+
+                <p class="preco">R$ 50,00</p>
+
+                <button
+                    class="btn-comprar"
+                    data-nome="Pizza Frango com Catupiry"
+                    data-preco="50"
+                >
+                    Comprar
+                </button>
+
+            </article>
+
+            <!-- PIZZA 3 -->
+            <article>
+
+                <h2>Pizza Brócolis e Bacon</h2>
+
+                <img
+                    src="imagens/pizza_brocolis.png"
+                    alt="Pizza Brócolis"
+                >
+
+                <p>Pizza Brócolis e Bacon.</p>
+
+                <p class="preco">R$ 55,00</p>
+
+                <button
+                    class="btn-comprar"
+                    data-nome="Pizza Brócolis e Bacon"
+                    data-preco="55"
+                >
+                    Comprar
+                </button>
+
+            </article>
+
+        </section>
+
+        <!-- CARRINHO -->
+        <section class="carrinho">
+
+            <h2>Carrinho</h2>
+
+            <ul id="lista-carrinho"></ul>
+
+            <!-- TOTAL -->
+            <div class="total-carrinho">
+
+                Total:
+                R$ <span id="total">0</span>
+
+            </div>
+
+            <!-- BOTÃO -->
+            <button id="btn-finalizar">
+                Finalizar Pedido
+            </button>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Pizzaria</p>
+    </footer>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modal-overlay">
+
+        <div class="modal">
+
+            <h2>Resumo do Pedido</h2>
+
+            <!-- LISTA -->
+            <div id="modal-pedidos"></div>
+
+            <!-- QUANTIDADE -->
+            <p>
+                Quantidade:
+                <span id="modal-quantidade">0</span>
+            </p>
+
+            <!-- TOTAL -->
+            <p>
+                Soma final:
+                R$ <span id="modal-total">0</span>
+            </p>
+
+            <!-- BOTÕES -->
+            <div class="modal-botoes">
+
+            <button id="btn-fechar">
+                Fechar
+            </button>
+
+            <button id="btn-confirmar">
+                Confirmar Pedido
+            </button>   
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="app.js"></script>
+
+</body>
+
+</html>
