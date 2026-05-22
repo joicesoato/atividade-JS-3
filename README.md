@@ -1,4 +1,4 @@
-# 🍕 Pizzaria - Atividade 3
+# Pizzaria - Atividade 3
 
 ## Descrição
 Nesta atividade foi implementado o uso do localStorage para manter o carrinho salvo mesmo após atualizar a página.
